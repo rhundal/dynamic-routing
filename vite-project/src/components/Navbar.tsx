@@ -13,7 +13,11 @@ export default function Navbar() {
   const isAuthenticated = context.isAuthenticated;
 
   const getNavLinkClass = ({ isActive }: { isActive: boolean }): string =>
-    `text-gray-700 ${isActive ? "underline font-bold text-blue-600" : "no-underline"}`;
+    `transition-all duration-200 ${
+      isActive
+        ? "underline decoration-2 font-bold text-blue-600"
+        : "text-gray-700 hover:text-blue-500 no-underline"
+    }`;
 
   // turning this off after introducing tailwind so it works properly
   // const activeStyle = ({
@@ -30,7 +34,7 @@ export default function Navbar() {
       <nav>
         <ul>
           <li>
-            <NavLink to="/" end>
+            <NavLink to="/" className={getNavLinkClass} end>
               Home
             </NavLink>{" "}
           </li>{" "}
