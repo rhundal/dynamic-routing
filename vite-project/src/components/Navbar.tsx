@@ -20,6 +20,12 @@ export default function Navbar() {
             </NavLink>{" "}
           </li>
           <li>
+            <NavLink to="/login" style={activeStyle} end>
+              {" "}
+              Login
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/blog/learning-react" style={activeStyle} end>
               React
             </NavLink>{" "}
@@ -47,3 +53,10 @@ export default function Navbar() {
     </header>
   );
 }
+
+/*
+Navbar/Header:
+The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a link to the “Admin” page if the user is logged in.
+Actual authentication is not required, but you should use the AuthContext to manage the authentication state and switch between the login and logout states when the buttons are clicked.
+
+*/

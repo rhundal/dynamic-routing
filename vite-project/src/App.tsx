@@ -1,9 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Blog from "./pages/Blog";
 import PageNotFound from "./pages/PostNotFound";
 import PostDetails from "./pages/PostDetails";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Blog />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/blog/:slug" element={<PostDetails />} />
       </Routes>
     </div>

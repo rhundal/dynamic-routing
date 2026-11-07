@@ -1,4 +1,4 @@
-import Post from "../components/post";
+import Post from "../components/Post";
 import posts from "../lib/posts";
 import type { PostType } from "../types/posts.types";
 
@@ -10,8 +10,6 @@ export default function PostDetails() {
   let selectedPost: PostType | undefined = posts.find(
     (post) => post.slug === slug,
   );
-
-  // let post1: PostType | undefined = posts.at(0);
 
   return (
     <div>

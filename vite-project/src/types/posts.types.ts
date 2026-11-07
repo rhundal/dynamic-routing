@@ -9,3 +9,16 @@ export interface PostType {
   content: string;
   levelOfUnderstanding: LevelOfUnderstanding;
 }
+
+export interface AuthContextType {
+  isAuthenticated: boolean;
+  login: () => void;
+  logout: () => void;
+}
+
+/*
+isAuthenticated: A boolean indicating the user’s login status.
+login(): A function to simulate logging in (sets isAuthenticated to true).
+logout(): A function to simulate logging out (sets isAuthenticated to false).
+
+*/
