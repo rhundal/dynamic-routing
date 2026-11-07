@@ -2,24 +2,30 @@
 
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const context = useContext(AuthContext);
+  const navigate = useNavigate();
 
   if (!context) return null;
 
   const login = context.login;
-  const isAuthenticated = context.isAuthenticated;
 
-  function loginFunction() {
-    if (!isAuthenticated) {
-      login();
-    }
-  }
+  const handleLogin = () => {
+    login();
+    navigate("/blog/admin");
+  };
 
   return (
-    <div>
-      <button onClick={loginFunction}> Login</button>
+    <div className="flex justify-center items-center">
+      <button
+        className="bg-blue-500 rounded-xl px-5 py-2"
+        onClick={handleLogin}
+      >
+        {" "}
+        Login
+      </button>
     </div>
   );
 }

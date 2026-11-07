@@ -12,11 +12,12 @@ export default function PostDetails() {
   );
 
   return (
-    <div>
-      {" "}
-      This is my Post Details Page which will call Posts Component which
-      constructs individual posts and display selected individual posts here.
-      <div>{selectedPost && <Post {...selectedPost} />}</div>
-    </div>
+    <>
+      <div className="flex justify-center items-center flex-col">
+        <main className="flex justify-center border-1 border-gray-200 rounded-xl w-[1000px] p-10">
+          {selectedPost && <Post {...selectedPost} />}
+        </main>
+      </div>
+    </>
   );
 }

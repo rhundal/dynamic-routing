@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PostNotFound";
 import PostDetails from "./pages/PostDetails";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Blog />} />
           <Route path="/blog/:slug" element={<PostDetails />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/blog/admin" element={<AdminPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </AuthProvider>

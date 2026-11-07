@@ -13,11 +13,21 @@ export default function AdminPage() {
 
   return (
     <>
-      {isAuthenticated ? (
-        "Welcome To Admin Dashboard"
-      ) : (
-        <button onClick={() => navigate("/login")}> Back To Login </button>
-      )}
+      <div className="flex justify-center items-center flex-col gap-5">
+        <main className="flex justify-center border-1 border-gray-200 rounded-xl w-[1000px] p-10">
+          {isAuthenticated ? (
+            "Welcome To Admin Dashboard"
+          ) : (
+            <button
+              className="bg-green-500 rounded-xl px-5 py-2"
+              onClick={() => navigate("/login")}
+            >
+              {" "}
+              Back To Login{" "}
+            </button>
+          )}
+        </main>
+      </div>
     </>
   );
 }
