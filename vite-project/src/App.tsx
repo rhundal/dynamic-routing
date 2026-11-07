@@ -5,17 +5,20 @@ import Blog from "./pages/Blog";
 import PageNotFound from "./pages/PostNotFound";
 import PostDetails from "./pages/PostDetails";
 import Login from "./pages/Login";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Blog />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/blog/:slug" element={<PostDetails />} />
-      </Routes>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Blog />} />
+          <Route path="/blog/:slug" element={<PostDetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }

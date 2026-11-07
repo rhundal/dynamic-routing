@@ -1,6 +1,17 @@
 import { NavLink } from "react-router-dom";
 
+import AuthContext from "../context/AuthContext";
+import { useContext } from "react";
+
 export default function Navbar() {
+  const context = useContext(AuthContext);
+
+  if (!context) return null;
+
+  // const login = context.login;
+  const logout = context.logout;
+  const isAuthenticated = context.isAuthenticated;
+
   const activeStyle = ({
     isActive,
   }: {
@@ -18,13 +29,30 @@ export default function Navbar() {
             <NavLink to="/" end>
               Home
             </NavLink>{" "}
-          </li>
-          <li>
-            <NavLink to="/login" style={activeStyle} end>
-              {" "}
-              Login
-            </NavLink>
-          </li>
+          </li>{" "}
+          {!isAuthenticated ? (
+            <li>
+              <NavLink to="/login" style={activeStyle} end>
+                {" "}
+                Login
+              </NavLink>
+            </li>
+          ) : (
+            <div>
+              <ul>
+                <li>
+                  <NavLink to="/admin" style={activeStyle} end>
+                    {" "}
+                    Admin
+                  </NavLink>
+                </li>
+                <li>
+                  {" "}
+                  <button onClick={logout}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          )}
           <li>
             <NavLink to="/blog/learning-react" style={activeStyle} end>
               React
@@ -56,7 +84,8 @@ export default function Navbar() {
 
 /*
 Navbar/Header:
-The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a link to the “Admin” page if the user is logged in.
-Actual authentication is not required, but you should use the AuthContext to manage the authentication state and switch between the login and logout states when the buttons are clicked.
+The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a 
+link to the “Admin” page if the user is logged in.
+
 
 */
